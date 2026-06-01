@@ -1,3 +1,8 @@
+---
+title: Architecture
+layout: default
+---
+
 # Architecture
 
 SequenceHub is built on four decoupled layers.

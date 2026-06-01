@@ -24,6 +24,15 @@ Public documentation for the SequenceHub platform. Open-source components —
 including the core service, file format I/O library, and Canvas visualization
 layer — are coming soon.
 
+## Documentation
+
+- [Architecture](docs/architecture.md)
+- [Deployment](docs/deployment.md)
+
+## Presentation
+
+- [SequenceHub Platform — RU](presentation/platform.limited.ru.html)
+
 ## License
 
 Licensed under the [Apache License 2.0](LICENSE).

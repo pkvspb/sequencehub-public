@@ -1,3 +1,8 @@
+---
+title: Deployment
+layout: default
+---
+
 # Deployment
 
 SequenceHub supports three deployment modes. Same binary, same REST API, same
