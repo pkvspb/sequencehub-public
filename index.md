@@ -3,7 +3,7 @@ layout: default
 title: ""
 ---
 
-<img src="assets/logo-SequenceHub.png" alt="SequenceHub" height="200">
+<img src="assets/logo-SequenceHub.png" alt="SequenceHub" style="height:200px; display:block; margin:-20px 0 -10px 0;">
 
 Browser-native platform for Sanger DNA sequencing analysis — built to replace
 legacy desktop sequencing tools with a modern, observable, and extensible
