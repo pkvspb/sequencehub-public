@@ -21,6 +21,8 @@ file I/O model, and visualization stack apply to any multi-channel time-series
 signal source — analytical instruments, industrial telemetry, or scientific
 visualization SaaS.
 
+## [▶ Platform Presentation (EN)](presentation/platform.html)
+
 ## [▶ Platform Presentation (RU)](presentation/platform.limited.ru.html)
 
 ## Documentation
