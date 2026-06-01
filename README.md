@@ -1,8 +1,8 @@
 # SequenceHub
 
-**SequenceHub** is a browser-native platform for Sanger DNA sequencing analysis —
-built to replace legacy desktop sequencing tools with a modern, observable, and
-extensible alternative.
+Browser-native platform for Sanger DNA sequencing analysis — built to replace
+legacy desktop sequencing tools with a modern, observable, and extensible
+alternative.
 
 It reads raw capillary electrophoresis output (AB1, SRD, DAN v2–6, SCF v3), runs
 a 9-stage basecalling pipeline, and renders results through a high-performance
@@ -18,20 +18,18 @@ file I/O model, and visualization stack apply to any multi-channel time-series
 signal source — analytical instruments, industrial telemetry, or scientific
 visualization SaaS.
 
-## This repository
-
-Public documentation for the SequenceHub platform. Open-source components —
-including the core service, file format I/O library, and Canvas visualization
-layer — are coming soon.
+## [▶ Platform Presentation (RU)](presentation/platform.limited.ru.html)
 
 ## Documentation
 
 - [Architecture](docs/architecture.md)
 - [Deployment](docs/deployment.md)
 
-## Presentation
+## This repository
 
-- [SequenceHub Platform — RU](presentation/platform.limited.ru.html)
+Public documentation for the SequenceHub platform. Open-source components —
+including the core service, file format I/O library, and Canvas visualization
+layer — are coming soon.
 
 ## License
 

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 462" font-family="'Segoe UI', Arial, sans-serif">
+
+  <!-- Center platform box -->
+  <rect x="350" y="196" width="300" height="108" rx="14"
+        fill="rgba(26,107,154,0.75)" stroke="rgba(150,210,255,0.9)" stroke-width="2.5"/>
+  <text x="500" y="240" text-anchor="middle" fill="white" font-size="19" font-weight="700">SequenceHub</text>
+  <text x="500" y="262" text-anchor="middle" fill="white" font-size="19" font-weight="700">Платформа</text>
+  <text x="500" y="288" text-anchor="middle" fill="rgba(255,255,255,0.55)" font-size="11">Sanger DNA sequencing · референсная реализация</text>
+
+  <!-- Spoke 1: Top — Sanger Basecalling (current, highlighted) -->
+  <line x1="500" y1="196" x2="500" y2="122" stroke="rgba(33,150,243,0.7)" stroke-width="2"/>
+  <circle cx="500" cy="122" r="5" fill="#2196f3"/>
+  <rect x="376" y="40" width="248" height="78" rx="10"
+        fill="rgba(33,150,243,0.32)" stroke="rgba(33,150,243,0.85)" stroke-width="2"/>
+  <text x="500" y="75" text-anchor="middle" fill="white" font-size="14" font-weight="700">Sanger Basecalling</text>
+  <text x="500" y="97" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="11">AB1 · SRD · DAN · SCF</text>
+
+  <!-- Spoke 2: Top-left — 4-уровневая архитектура -->
+  <line x1="350" y1="228" x2="245" y2="170" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <circle cx="245" cy="170" r="4" fill="rgba(255,255,255,0.4)"/>
+  <rect x="42" y="122" width="198" height="76" rx="10"
+        fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+  <text x="141" y="148" text-anchor="middle" fill="white" font-size="13" font-weight="600">4-уровневая архитектура</text>
+  <text text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="9"><tspan x="141" y="163">Браузер · Сервис</tspan><tspan x="141" dy="12">Процессоры · Данные</tspan></text>
+
+  <!-- Spoke 3: Top-right — Canvas-визуализация -->
+  <line x1="650" y1="228" x2="755" y2="170" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <circle cx="755" cy="170" r="4" fill="rgba(255,255,255,0.4)"/>
+  <rect x="760" y="122" width="198" height="76" rx="10"
+        fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+  <text x="859" y="148" text-anchor="middle" fill="white" font-size="13" font-weight="600">Canvas-визуализация</text>
+  <text text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="9"><tspan x="859" y="163">Высокопроизводительная</tspan><tspan x="859" dy="12">многоканальная · Q0–Q60</tspan></text>
+
+  <!-- Spoke 4: Bottom-left — Плагин-процессоры -->
+  <line x1="420" y1="304" x2="270" y2="358" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <circle cx="270" cy="358" r="4" fill="rgba(255,255,255,0.4)"/>
+  <rect x="66" y="358" width="198" height="76" rx="10"
+        fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+  <text x="165" y="390" text-anchor="middle" fill="white" font-size="13" font-weight="600">Плагин-процессоры</text>
+  <text x="165" y="406" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="9">Изоляция сбоев</text>
+
+  <!-- Spoke 5: Bottom-right — 2 режима развёртывания -->
+  <line x1="580" y1="304" x2="730" y2="358" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <circle cx="730" cy="358" r="4" fill="rgba(255,255,255,0.4)"/>
+  <rect x="736" y="358" width="198" height="76" rx="10"
+        fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+  <text x="835" y="390" text-anchor="middle" fill="white" font-size="13" font-weight="600">2 режима развёртывания</text>
+  <text x="835" y="406" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="9">Десктоп · Веб</text>
+</svg>

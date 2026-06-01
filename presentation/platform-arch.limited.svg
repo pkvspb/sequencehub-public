@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-32 -28 644 584" font-family="'Segoe UI', Arial, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto">
+      <path d="M0,0 L8,3.5 L0,7 Z" fill="rgba(0,0,0,0.45)"/>
+    </marker>
+  </defs>
+
+  <!-- Layer 1: Browser + Electron Desktop (4 boxes) -->
+  <rect x="8" y="8" width="564" height="108" rx="10"
+        fill="rgba(33,150,243,0.10)" stroke="rgba(33,150,243,0.80)" stroke-width="1.5"/>
+  <text x="22" y="27" fill="#1565c0" font-size="9.5" font-weight="700" letter-spacing="2.5">BROWSER · DESKTOP</text>
+
+  <rect x="22" y="34" width="125" height="68" rx="6"
+        fill="rgba(33,150,243,0.16)" stroke="rgba(33,150,243,0.60)" stroke-width="1"/>
+  <text x="85" y="66" text-anchor="middle" fill="#1a2733" font-size="12" font-weight="600">SeqView</text>
+  <text x="85" y="82" text-anchor="middle" fill="#666" font-size="9.5">Vanilla JS</text>
+
+  <rect x="159" y="34" width="125" height="68" rx="6"
+        fill="rgba(33,150,243,0.16)" stroke="rgba(33,150,243,0.60)" stroke-width="1"/>
+  <text x="222" y="66" text-anchor="middle" fill="#1a2733" font-size="12" font-weight="600">XSeq</text>
+  <text x="222" y="82" text-anchor="middle" fill="#666" font-size="9.5">React + Vite</text>
+
+  <rect x="296" y="34" width="125" height="68" rx="6"
+        fill="rgba(33,150,243,0.16)" stroke="rgba(33,150,243,0.60)" stroke-width="1"/>
+  <text x="358" y="62" text-anchor="middle" fill="#1a2733" font-size="11" font-weight="600">webcomponents</text>
+  <text x="358" y="78" text-anchor="middle" fill="#666" font-size="9.5">Canvas Library</text>
+
+  <!-- Electron Desktop box — purple tint to distinguish from web browsers -->
+  <rect x="433" y="34" width="125" height="68" rx="6"
+        fill="rgba(103,58,183,0.13)" stroke="rgba(103,58,183,0.75)" stroke-width="1.5"/>
+  <text x="496" y="62" text-anchor="middle" fill="#1a2733" font-size="11" font-weight="600">Electron</text>
+  <text x="496" y="76" text-anchor="middle" fill="#1a2733" font-size="11" font-weight="600">Desktop</text>
+  <text x="496" y="93" text-anchor="middle" fill="#777" font-size="9">win · linux</text>
+
+  <!-- Arrow 1→2 -->
+  <line x1="290" y1="118" x2="290" y2="132" stroke="rgba(0,0,0,0.40)" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="300" y="129" fill="rgba(0,0,0,0.50)" font-size="9">REST + SSE</text>
+
+  <!-- Layer 2: Service -->
+  <rect x="8" y="138" width="564" height="114" rx="10"
+        fill="rgba(26,107,154,0.09)" stroke="rgba(26,107,154,0.75)" stroke-width="1.5"/>
+  <text x="22" y="157" fill="#0d5c8a" font-size="9.5" font-weight="700" letter-spacing="2.5">SERVICE — ASP.NET Core 9</text>
+
+  <rect x="22" y="165" width="108" height="74" rx="6"
+        fill="rgba(26,107,154,0.13)" stroke="rgba(26,107,154,0.45)" stroke-width="1"/>
+  <text x="76" y="202" text-anchor="middle" fill="#1a2733" font-size="12" font-weight="600">ProcSvc</text>
+  <text x="76" y="218" text-anchor="middle" fill="#666" font-size="9">Web API</text>
+
+  <rect x="142" y="165" width="108" height="74" rx="6"
+        fill="rgba(26,107,154,0.13)" stroke="rgba(26,107,154,0.45)" stroke-width="1"/>
+  <text x="196" y="200" text-anchor="middle" fill="#1a2733" font-size="11" font-weight="600">Job Queue</text>
+  <text x="196" y="216" text-anchor="middle" fill="#666" font-size="9">Channel&lt;T&gt;</text>
+
+  <rect x="262" y="165" width="88" height="74" rx="6"
+        fill="rgba(26,107,154,0.13)" stroke="rgba(26,107,154,0.45)" stroke-width="1"/>
+  <text x="306" y="208" text-anchor="middle" fill="#1a2733" font-size="12" font-weight="600">Auth</text>
+
+  <rect x="362" y="165" width="88" height="74" rx="6"
+        fill="rgba(26,107,154,0.13)" stroke="rgba(26,107,154,0.45)" stroke-width="1"/>
+  <text x="406" y="200" text-anchor="middle" fill="#1a2733" font-size="12" font-weight="600">SSE</text>
+  <text x="406" y="216" text-anchor="middle" fill="#666" font-size="9">Events</text>
+
+  <rect x="462" y="165" width="102" height="74" rx="6"
+        fill="rgba(26,107,154,0.13)" stroke="rgba(26,107,154,0.45)" stroke-width="1"/>
+  <text x="513" y="200" text-anchor="middle" fill="#1a2733" font-size="11" font-weight="600">File</text>
+  <text x="513" y="216" text-anchor="middle" fill="#1a2733" font-size="11" font-weight="600">Store</text>
+
+  <!-- Arrow 2→3 -->
+  <line x1="175" y1="254" x2="175" y2="268" stroke="rgba(0,0,0,0.40)" stroke-width="1.5" marker-end="url(#a)"/>
+  <line x1="405" y1="254" x2="405" y2="268" stroke="rgba(0,0,0,0.40)" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="196" y="265" fill="rgba(0,0,0,0.50)" font-size="9">isolated OS process</text>
+
+  <!-- Layer 3: Processors -->
+  <rect x="8" y="274" width="564" height="112" rx="10"
+        fill="rgba(230,81,0,0.08)" stroke="rgba(230,81,0,0.75)" stroke-width="1.5"/>
+  <text x="22" y="293" fill="#bf360c" font-size="9.5" font-weight="700" letter-spacing="2.5">PROCESSORS</text>
+
+  <rect x="22" y="300" width="253" height="74" rx="6"
+        fill="rgba(230,81,0,0.12)" stroke="rgba(230,81,0,0.50)" stroke-width="1"/>
+  <text x="148" y="334" text-anchor="middle" fill="#1a2733" font-size="12" font-weight="600">SangerBasecaller</text>
+  <text x="148" y="350" text-anchor="middle" fill="#555" font-size="10">AB1 · SRD · DAN · SCF</text>
+  <text x="148" y="364" text-anchor="middle" fill="#888" font-size="9">.NET 9 CLI</text>
+
+  <rect x="289" y="300" width="275" height="74" rx="6"
+        fill="rgba(230,81,0,0.12)" stroke="rgba(230,81,0,0.50)" stroke-width="1"/>
+  <text x="426" y="334" text-anchor="middle" fill="#1a2733" font-size="12" font-weight="600">ProcessStarter</text>
+  <text x="426" y="350" text-anchor="middle" fill="#555" font-size="10">BV native · AIP binary</text>
+  <text x="426" y="364" text-anchor="middle" fill="#888" font-size="9">SRD router</text>
+
+  <!-- Arrow 3→4 -->
+  <line x1="290" y1="388" x2="290" y2="402" stroke="rgba(0,0,0,0.40)" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="300" y="399" fill="rgba(0,0,0,0.50)" font-size="9">DLL · runtime load</text>
+
+  <!-- Layer 4: Data -->
+  <rect x="8" y="408" width="564" height="112" rx="10"
+        fill="rgba(56,142,60,0.08)" stroke="rgba(56,142,60,0.70)" stroke-width="1.5"/>
+  <text x="22" y="427" fill="#1b5e20" font-size="9.5" font-weight="700" letter-spacing="2.5">DATA</text>
+
+  <rect x="22" y="434" width="210" height="74" rx="6"
+        fill="rgba(56,142,60,0.14)" stroke="rgba(56,142,60,0.45)" stroke-width="1"/>
+  <text x="127" y="470" text-anchor="middle" fill="#1a2733" font-size="12" font-weight="600">SequenceLogicData</text>
+  <text x="127" y="486" text-anchor="middle" fill="#666" font-size="9">.NET 9 library</text>
+
+  <rect x="246" y="434" width="68" height="74" rx="6"
+        fill="rgba(56,142,60,0.14)" stroke="rgba(56,142,60,0.45)" stroke-width="1"/>
+  <text x="280" y="478" text-anchor="middle" fill="#1a2733" font-size="13" font-weight="700">AB1</text>
+
+  <rect x="326" y="434" width="68" height="74" rx="6"
+        fill="rgba(56,142,60,0.14)" stroke="rgba(56,142,60,0.45)" stroke-width="1"/>
+  <text x="360" y="478" text-anchor="middle" fill="#1a2733" font-size="13" font-weight="700">SRD</text>
+
+  <rect x="406" y="434" width="68" height="74" rx="6"
+        fill="rgba(56,142,60,0.14)" stroke="rgba(56,142,60,0.45)" stroke-width="1"/>
+  <text x="440" y="478" text-anchor="middle" fill="#1a2733" font-size="13" font-weight="700">DAN</text>
+
+  <rect x="486" y="434" width="78" height="74" rx="6"
+        fill="rgba(56,142,60,0.14)" stroke="rgba(56,142,60,0.45)" stroke-width="1"/>
+  <text x="525" y="478" text-anchor="middle" fill="#1a2733" font-size="13" font-weight="700">SCF</text>
+</svg>
