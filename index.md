@@ -1,3 +1,8 @@
+---
+layout: default
+title: ""
+---
+
 Browser-native platform for Sanger DNA sequencing analysis — built to replace
 legacy desktop sequencing tools with a modern, observable, and extensible
 alternative.
@@ -20,8 +25,8 @@ visualization SaaS.
 
 ## Documentation
 
-- [Architecture](docs/architecture.md)
-- [Deployment](docs/deployment.md)
+- [Architecture](docs/architecture.html)
+- [Deployment](docs/deployment.html)
 
 ## This repository
 
