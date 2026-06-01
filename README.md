@@ -1,8 +1,3 @@
----
-layout: home
-title: ""
----
-
 Browser-native platform for Sanger DNA sequencing analysis — built to replace
 legacy desktop sequencing tools with a modern, observable, and extensible
 alternative.
