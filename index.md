@@ -18,10 +18,18 @@ in `docker-compose`. It deploys as a single Electron desktop application or scal
 to a distributed multi-worker setup — same codebase, same API, mode selected by
 configuration.
 
-The core architecture is domain-agnostic. The same processing orchestration,
+## Applicable Domains
+
+The core architecture is domain-agnostic — the same processing orchestration,
 file I/O model, and visualization stack apply to any multi-channel time-series
-signal source — analytical instruments, industrial telemetry, or scientific
-visualization SaaS.
+signal source:
+
+- Sanger DNA sequencing
+- Scientific instrumentation
+- Analytical chemistry
+- Industrial telemetry
+- Signal processing platforms
+- Browser-native engineering SaaS
 
 ## [About the Author](about.html)
 
