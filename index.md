@@ -35,6 +35,8 @@ signal source:
 
 ## [🚀  Live Demo](https://ou22-i5qc-fuai.gw-1a.dockhost.net/)
 
+Login: `seq@admin` / `seq@admin`
+
 ## [🧬 Platform Presentation](presentation/platform.html)
 
 ## Documentation
