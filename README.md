@@ -28,9 +28,7 @@ signal source:
 
 ## [▶ Live Demo](https://ou22-i5qc-fuai.gw-1a.dockhost.net/)
 
-## [🧬 Platform Presentation (EN)](presentation/platform.html)
-
-## [🧬 Platform Presentation (RU)](presentation/platform.limited.ru.html)
+## [🧬 Platform Presentation](presentation/platform.html)
 
 ## Documentation
 
