@@ -3,31 +3,26 @@ title: Screenshots
 layout: doc
 ---
 
-<style>
-.img-scroll { overflow-x: auto; margin: 1rem 0; }
-.img-scroll img { display: block; max-width: 1000; }
-</style>
-
 # Screenshots
 
 ## Electropherogram viewer
 
-<div class="img-scroll"><img src="1.Electropherogram%20viewer.png" alt="Electropherogram viewer"></div>
+<div style="overflow-x:auto;margin:1rem 0"><img src="1.Electropherogram%20viewer.png" alt="Electropherogram viewer" style="display:block;width:1263px;height:auto"></div>
 
-<div class="img-scroll"><img src="2.Electropherogram%20viewer.png" alt="Electropherogram viewer"></div>
+<div style="overflow-x:auto;margin:1rem 0"><img src="2.Electropherogram%20viewer.png" alt="Electropherogram viewer" style="display:block;width:1263px;height:auto"></div>
 
 ## Zoomed trace
 
-<div class="img-scroll"><img src="3.Zoomed%20trace.png" alt="Zoomed trace"></div>
+<div style="overflow-x:auto;margin:1rem 0"><img src="3.Zoomed%20trace.png" alt="Zoomed trace" style="display:block;width:1263px;height:auto"></div>
 
 ## Select Basecaller
 
-<div class="img-scroll"><img src="4.Select%20Basecaller.png" alt="Select Basecaller"></div>
+<div style="overflow-x:auto;margin:1rem 0"><img src="4.Select%20Basecaller.png" alt="Select Basecaller" style="display:block;width:1241px;height:auto"></div>
 
 ## Architecture overview
 
-<div class="img-scroll"><img src="5.Architecture%20overview.png" alt="Architecture overview"></div>
+<div style="overflow-x:auto;margin:1rem 0"><img src="5.Architecture%20overview.png" alt="Architecture overview" style="display:block;width:975px;height:auto"></div>
 
 ## Deployment
 
-<div class="img-scroll"><img src="6.Distributed%20deployment%20diagram.png" alt="Distributed deployment diagram"></div>
+<div style="overflow-x:auto;margin:1rem 0"><img src="6.Distributed%20deployment%20diagram.png" alt="Distributed deployment diagram" style="display:block;width:1427px;height:auto"></div>
