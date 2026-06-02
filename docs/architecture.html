@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Architecture — SequenceHub</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.6; color: #24292e; background: #fff; margin: 0; padding: 0; }
+    .wrapper { max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+    nav { margin-bottom: 2rem; font-size: 0.9rem; }
+    nav a { color: #0366d6; text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    h1 { font-size: 2rem; font-weight: 700; border-bottom: 1px solid #e1e4e8; padding-bottom: 0.4em; margin-top: 0; }
+    h2 { font-size: 1.4rem; font-weight: 600; border-bottom: 1px solid #e1e4e8; padding-bottom: 0.3em; margin-top: 2rem; }
+    h3 { font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; }
+    pre { background: #f6f8fa; border: 1px solid #e1e4e8; border-radius: 6px; padding: 1rem; overflow-x: auto; font-size: 0.875rem; line-height: 1.5; }
+    code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.875em; background: #f6f8fa; border: 1px solid #e1e4e8; border-radius: 3px; padding: 0.15em 0.4em; }
+    pre code { background: none; border: none; padding: 0; font-size: inherit; }
+    ol, ul { padding-left: 1.5rem; }
+    li { margin: 0.25rem 0; }
+    strong { font-weight: 600; }
+    hr { border: none; border-top: 1px solid #e1e4e8; margin: 2rem 0; }
+    p { margin: 0.8rem 0; }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <nav><a href="../index.html">← SequenceHub</a></nav>
+
+    <h1>Architecture</h1>
+
+    <p>SequenceHub is a Sanger DNA sequencing analysis platform with four layers:</p>
+    <ol>
+      <li><strong>File I/O</strong> — <code>SequenceLogicData</code> reads and writes SRD, AB1, DAN, and SCF sequencing files</li>
+      <li><strong>Basecalling</strong> — <code>SangerBasecaller</code> (PkvBasecallerN) and native processors (BV, AIP) convert raw fluorescence signals to base calls</li>
+      <li><strong>Web service</strong> — <code>ProcSvc</code> (prochub) manages file storage, job queuing, user auth, and HTTP endpoints</li>
+      <li><strong>Visualization</strong> — browser-based electropherogram viewer built on the <code>webcomponents</code> canvas library</li>
+    </ol>
+
+    <h2>Component Dependencies</h2>
+<pre><code>SequenceLogicData  (.NET 9 — SRD/AB1/DAN/SCF I/O)
+  ├──► PkvBasecallerN  bundles SequenceLogicData.dll at compile time
+  └──► prochub/Storage  loads SequenceLogicData.dll at runtime
+
+PkvBasecallerN  →  published binary  →  prochub/back/ExternalBasecallers/PkvBasecallerN/
+ProcessStarter  →  published binary  →  prochub/back/ExternalBasecallers/ProcessStarter/
+
+webcomponents  (no build step)
+  ├──► prochub/front/  installed as local file: package
+  └──► xseq/  installed as local file: package</code></pre>
+
+    <h2>Processing Flow</h2>
+    <ol>
+      <li>User uploads sequence files through the web UI</li>
+      <li><code>POST /process/{processorName}</code> enqueues a job and returns a <code>jobId</code></li>
+      <li>The backend shells out to a basecaller binary for each file:
+        <ul>
+          <li><strong>SangerBasecaller</strong> — called directly</li>
+          <li><strong>BV processor</strong> — routed via <code>ProcessStarter {file} bv</code></li>
+          <li><strong>AIP processor</strong> — routed via <code>ProcessStarter {file} aip {binaryPath}</code></li>
+        </ul>
+      </li>
+      <li>The client streams live progress via <code>GET /process/{jobId}/events</code> (Server-Sent Events)</li>
+      <li>Results — called bases, quality scores, electropherogram traces — are rendered on HTML5 Canvas by <code>webcomponents</code></li>
+    </ol>
+
+    <h2>Deployment Modes</h2>
+    <p>Two modes selected at startup via <code>appsettings.json</code> or environment variables:</p>
+
+    <p><strong>Single-node</strong> (default — no external dependencies):</p>
+    <ul>
+      <li>Job queue: in-process <code>Channel&lt;T&gt;</code></li>
+      <li>User store: JSON file</li>
+      <li>SSE events delivered in-process; client must reach the same instance that runs the job</li>
+    </ul>
+
+    <p><strong>Distributed</strong> (requires Redis + PostgreSQL):</p>
+    <ul>
+      <li>Job queue: Redis List, polled every 100 ms</li>
+      <li>User store: PostgreSQL</li>
+      <li>SSE events: Redis Streams — any instance can serve events for any job</li>
+      <li>Cancellation: Redis key, polled at a configurable interval</li>
+    </ul>
+  </div>
+</body>
+</html>

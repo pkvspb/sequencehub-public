@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SequenceLogicData API — SequenceHub</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.6; color: #24292e; background: #fff; margin: 0; padding: 0; }
+    .wrapper { max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+    nav { margin-bottom: 2rem; font-size: 0.9rem; }
+    nav a { color: #0366d6; text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    h1 { font-size: 2rem; font-weight: 700; border-bottom: 1px solid #e1e4e8; padding-bottom: 0.4em; margin-top: 0; }
+    h2 { font-size: 1.4rem; font-weight: 600; border-bottom: 1px solid #e1e4e8; padding-bottom: 0.3em; margin-top: 2rem; }
+    h3 { font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; }
+    h4 { font-size: 1rem; font-weight: 600; margin-top: 1.25rem; }
+    pre { background: #f6f8fa; border: 1px solid #e1e4e8; border-radius: 6px; padding: 1rem; overflow-x: auto; font-size: 0.875rem; line-height: 1.5; }
+    code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.875em; background: #f6f8fa; border: 1px solid #e1e4e8; border-radius: 3px; padding: 0.15em 0.4em; }
+    pre code { background: none; border: none; padding: 0; font-size: inherit; }
+    table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: 0.9rem; }
+    th { background: #f6f8fa; font-weight: 600; text-align: left; }
+    th, td { border: 1px solid #e1e4e8; padding: 0.5rem 0.75rem; }
+    tr:nth-child(even) td { background: #fafafa; }
+    ul, ol { padding-left: 1.5rem; }
+    li { margin: 0.25rem 0; }
+    strong { font-weight: 600; }
+    hr { border: none; border-top: 1px solid #e1e4e8; margin: 2rem 0; }
+    p { margin: 0.8rem 0; }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <nav><a href="../index.html">← SequenceHub</a></nav>
+
+    <h1>SequenceLogicData API</h1>
+
+    <p>Public surface of <code>SequenceLogicData.dll</code> — the file format I/O library for AB1, SRD, DAN, and SCF sequencing files.</p>
+
+    <hr>
+
+    <h2>Core I/O interfaces</h2>
+<pre><code>// Read any supported file → SequenceResult
+public interface INucleotideReader
+{
+    SequenceResult Read(string fileName);
+}
+
+// Write a SequenceResult back to disk (async)
+public interface INucleotideWriterAsync
+{
+    Task WriteAsync(SequenceResult nucsPeaks, string fileName);
+}</code></pre>
+    <p>Both <code>AB1ReadWriter</code> and <code>DanReaderWriter</code> implement both interfaces. <code>SrdReader</code> implements only <code>INucleotideReader</code>.</p>
+
+    <hr>
+
+    <h2>File format implementations</h2>
+    <table>
+      <thead>
+        <tr><th>Class</th><th>Formats</th><th>Interfaces</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>AB1ReadWriter</code></td><td><code>.ab1</code>, <code>.fsa</code></td><td><code>INucleotideReader</code>, <code>INucleotideWriterAsync</code></td></tr>
+        <tr><td><code>DanReaderWriter</code></td><td><code>.dan</code> (DAN2–DAN6)</td><td><code>INucleotideReader</code>, <code>INucleotideWriterAsync</code></td></tr>
+        <tr><td><code>SrdReader</code></td><td><code>.srd</code> (XML)</td><td><code>INucleotideReader</code></td></tr>
+        <tr><td><code>ScfReader</code></td><td><code>.scf</code> (Staden SCF v3)</td><td><code>INucleotideReader</code></td></tr>
+        <tr><td><code>ScfWriter</code></td><td><code>.scf</code> (Staden SCF v3)</td><td><code>INucleotideWriterAsync</code></td></tr>
+      </tbody>
+    </table>
+    <p>All are concrete classes with a public parameterless constructor, usable as generic type arguments (<code>where T : INucleotideReader, new()</code>).</p>
+
+    <h4>SCF-specific behaviours</h4>
+    <ul>
+      <li><strong>Delta encoding</strong> — SCF v3 uses Staden 2-pass "differences of differences" encoding. <code>ScfReader</code> applies two forward accumulation passes on read; <code>ScfWriter</code> applies two backward difference passes on write.</li>
+      <li><strong>Amplitude normalization</strong> — after applying any <code>SCAL</code>/<code>OFFS</code> comments, if the overall signal maximum is below 10 000 (weak-signal runs), all four channels are scaled linearly so the maximum reaches 30 000. This matches the amplitude range AB1 files naturally carry and that SangerBasecaller's peak-detection threshold (1000 on the post-filter signal) requires.</li>
+      <li><strong>Comments</strong> — a subset of Staden comments is parsed (<code>NAME</code>, <code>MACH</code>, <code>MODL</code>, <code>LANE</code>, <code>STEP</code>, <code>STRT</code>, <code>DCST</code>, <code>STOP</code>, <code>SCAL</code>, <code>OFFS</code>). Additional instrument-specific keys from third-party files (e.g. ABI 3730xl) are intentionally ignored.</li>
+    </ul>
+
+    <hr>
+
+    <h2>ISequenceResult — narrow read-only view</h2>
+    <p>Used by Storage via <code>ISequenceResult values = reader.Read(filePath)</code>.</p>
+<pre><code>public interface ISequenceResult
+{
+    // Peaks
+    IReadOnlyList&lt;SequencePeak&gt;? Peaks { get; }   // null when file has no analysis
+    double[]? PeaksValuesA { get; }               // Gaussian envelope, ACGT order
+    double[]? PeaksValuesC { get; }
+    double[]? PeaksValuesG { get; }
+    double[]? PeaksValuesT { get; }
+    double    TimeShiftMs  { get; }               // envelope time offset
+
+    // Raw signal (null when file contains no raw data)
+    RawData? RawDataValues { get; }
+
+    // Metadata
+    string?          ProjectName          { get; }
+    Sample           SampleInfo           { get; }
+    Instrument       InstrumentInfo       { get; }
+    Tube             TubeInfo             { get; }
+    Capillary        CapillaryInfo        { get; }
+    ExperimentParams ExperimentParameters { get; }
+}</code></pre>
+
+    <hr>
+
+    <h2>SequenceResult — full mutable aggregate</h2>
+    <p>Returned from <code>Read</code>, passed to <code>WriteAsync</code>. Implements <code>ISequenceResult</code>.</p>
+<pre><code>public class SequenceResult : ISequenceResult
+{
+    // Sequence data
+    public PeaksCollection          Peaks;
+    public Dictionary&lt;int,Nucleotide&gt; Nucleotids; // position → base, keyed from 0
+
+    // Raw fluorescence
+    public RawData? RawDataValues { get; set; }
+    public RawData? IntermediateData { get; set; }
+
+    // Status
+    public bool IsAnalyzed { get; }         // true when envelopes are present
+    public string? CurrentFormat { get; set; } // "srd" / "dan" / "ab1" / "fsa"
+    public SequenceFileFormat Format { get; }  // enum equivalent of CurrentFormat
+
+    // Metadata
+    public string?    ProjectName         { get; set; }
+    public string?    User                { get; set; }
+    public Sample           SampleInfo           { get; set; }
+    public Instrument       InstrumentInfo       { get; set; }
+    public Tube             TubeInfo             { get; set; }
+    public Capillary        CapillaryInfo        { get; set; }
+    public ExperimentParams ExperimentParameters { get; set; }
+    public Polymer          PolymerInfo          { get; set; }
+    public DyeSet           Dyes                 { get; set; }
+
+    // Analysis parameters
+    public Matrix         CorrectionMatrix        { get; set; } // 4×4, ACGT order
+
+    // Constructors
+    public SequenceResult(PeaksCollection peaks, Dictionary&lt;int,Nucleotide&gt; nucleotids, RawData? rawData);
+    public SequenceResult(PeaksCollection peaks, Dictionary&lt;int,Nucleotide&gt; nucleotids);
+
+    // Write basecaller output into this container
+    public void SetAnalysisResults(
+        List&lt;SequencePeak&gt;        peaks,
+        Dictionary&lt;int,Nucleotide&gt; nucleotids,
+        double[] envelopesA, double[] envelopesC,
+        double[] envelopesG, double[] envelopesT,
+        double   timeShiftMs);
+}</code></pre>
+
+    <hr>
+
+    <h2>Domain types</h2>
+
+    <h3>RawData</h3>
+    <p>Four-channel fluorescence time-series; always in ACGT order.</p>
+<pre><code>public class RawData
+{
+    public double[] ValuesA, ValuesC, ValuesG, ValuesT;
+    public double   TimeStepSec { get; set; }   // seconds per sample
+    public bool     IsEmpty     { get; }
+
+    // Optional EPT channels
+    public ChannelData? Voltage             { get; }
+    public ChannelData? Temperature         { get; }
+    public ChannelData? Current             { get; }
+    public ChannelData? DetectorTemperature { get; }
+
+    public RawData(int count);
+    public void CreateEpt(int count, double timeStep);
+}</code></pre>
+
+    <h3>SequencePeak</h3>
+    <p>One detected base-call. Per-base weight arrays allow IUPAC ambiguity codes.</p>
+<pre><code>public class SequencePeak
+{
+    // Identity
+    public int    NucleotidId;    // use NucId constants or NucleotideIdConverter
+    public int    NumberInitial;  // original position index
+    public int    NumberEdited;   // position after editing
+
+    // Signal geometry
+    public float  Amplitude;     // peak height
+    public float  SigmaMs;       // Gaussian σ in ms
+    public double TimeOutMs;     // peak centre time in ms
+    public double TimeOutSec { get; }
+    public double SigmaSec  { get; }
+
+    // Quality
+    public int    Quality  { get; set; }
+    public int    Weight   { get; set; }
+
+    // Flags
+    public bool   IsDeleted, IsMatched, NonReal, IsChanged;
+
+    public string Name { get; }   // single-letter IUPAC
+
+    public double YGauss(double xSec);   // Gaussian value at time xSec
+    public void   Complementary();       // flip to complement base in-place
+}</code></pre>
+
+    <h3>PeaksCollection</h3>
+<pre><code>public class PeaksCollection
+{
+    public List&lt;SequencePeak&gt; Peaks;
+    public double   TimeShiftMs;
+    public double[]? PeaksValuesA, PeaksValuesC, PeaksValuesG, PeaksValuesT;
+
+    public int  PeaksValuesCount { get; }
+    public int  Quality          { get; }  // mean Weight across all peaks
+
+    public void Add(SequencePeak thePeak);
+}</code></pre>
+
+    <h3>Nucleotide</h3>
+<pre><code>public class Nucleotide
+{
+    public int NucleotidId;
+    public int NucleotidInitialNumber;
+    public int Weight;                  // quality score 0–60
+    public int MatchedInitialNumber;    // -1 = not matched
+
+    public const int NotMatched = -1;
+
+    public Nucleotide(int nucId, int weight, int nucInitialNumber);
+    public Nucleotide(int nucId, int weight);
+
+    public static bool IsMutation(int nucId);
+    public static int  GetCompliment(int nucId);
+    public void        Complementary();
+}</code></pre>
+
+    <hr>
+
+    <h2>Nucleotide ID constants</h2>
+<pre><code>public static class NucId
+{
+    public const int Undefined = -2;
+    public const int Shift     = -1;
+    public const int Empty     =  0;
+    public const int A=1, C=2, G=3, N=4, T=5, X=6;
+    public const int M=7, R=8, W=9, S=10, Y=11, K=12;
+    public const int V=13, H=14, D=15, B=16;
+}
+
+public static class NucleotideIdConverter
+{
+    public static int    ToInt(string s);
+    public static int    ToIntWithUndefined(string s);  // returns -2 on unknown
+    public static string ToStr(int i);                  // single-letter IUPAC
+}</code></pre>
+
+    <hr>
+
+    <h2>Channel ordering</h2>
+    <p>All arrays and matrices inside <code>SequenceResult</code> use <strong>ACGT order</strong> (A=0, C=1, G=2, T=3).</p>
+    <table>
+      <thead>
+        <tr><th>Format</th><th>On-disk channel order</th><th>Remapped on read?</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>.srd</code> (XML)</td><td>GATC</td><td>Yes — <code>perm = {2, 0, 3, 1}</code></td></tr>
+        <tr><td><code>.ab1</code> / <code>.fsa</code> (ABIF binary)</td><td>GATC</td><td>Yes</td></tr>
+        <tr><td><code>.scf</code> (Staden SCF v3)</td><td>ACGT</td><td>No</td></tr>
+        <tr><td><code>.dan</code></td><td>ACGT (all versions)</td><td>No</td></tr>
+      </tbody>
+    </table>
+
+    <hr>
+
+    <h2>File format enums</h2>
+<pre><code>public static class SequenceFileExtension
+{
+    public const string SRD = "srd", DAN = "dan", AB1 = "ab1",
+                        FASTA = "fasta", FAS = "fas", TXT = "txt";
+}
+
+public enum SequenceFileFormat { Unknown, SRD, DAN, AB1, FSA, FASTA }</code></pre>
+  </div>
+</body>
+</html>

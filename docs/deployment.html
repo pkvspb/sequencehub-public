@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deployment — SequenceHub</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.6; color: #24292e; background: #fff; margin: 0; padding: 0; }
+    .wrapper { max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+    nav { margin-bottom: 2rem; font-size: 0.9rem; }
+    nav a { color: #0366d6; text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    h1 { font-size: 2rem; font-weight: 700; border-bottom: 1px solid #e1e4e8; padding-bottom: 0.4em; margin-top: 0; }
+    h2 { font-size: 1.4rem; font-weight: 600; border-bottom: 1px solid #e1e4e8; padding-bottom: 0.3em; margin-top: 2rem; }
+    h3 { font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; }
+    pre { background: #f6f8fa; border: 1px solid #e1e4e8; border-radius: 6px; padding: 1rem; overflow-x: auto; font-size: 0.875rem; line-height: 1.5; }
+    code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.875em; background: #f6f8fa; border: 1px solid #e1e4e8; border-radius: 3px; padding: 0.15em 0.4em; }
+    pre code { background: none; border: none; padding: 0; font-size: inherit; }
+    table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: 0.9rem; }
+    th { background: #f6f8fa; font-weight: 600; text-align: left; }
+    th, td { border: 1px solid #e1e4e8; padding: 0.5rem 0.75rem; }
+    tr:nth-child(even) td { background: #fafafa; }
+    ul, ol { padding-left: 1.5rem; }
+    li { margin: 0.25rem 0; }
+    strong { font-weight: 600; }
+    hr { border: none; border-top: 1px solid #e1e4e8; margin: 2rem 0; }
+    p { margin: 0.8rem 0; }
+    em { color: #6a737d; }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <nav><a href="../index.html">← SequenceHub</a></nav>
+
+    <h1>Deployment</h1>
+
+    <p>SequenceHub supports three deployment modes. Same binary, same REST API, same processing pipeline — mode selected by configuration, not by code.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Desktop</th>
+          <th>Single-node web</th>
+          <th>Distributed</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Packaging</td>
+          <td>Electron + <code>.exe</code> / <code>.AppImage</code></td>
+          <td><code>docker run</code> · native binary</td>
+          <td><code>docker compose</code></td>
+        </tr>
+        <tr>
+          <td>Job queue</td>
+          <td><code>Channel&lt;T&gt;</code></td>
+          <td><code>Channel&lt;T&gt;</code></td>
+          <td>Redis List</td>
+        </tr>
+        <tr>
+          <td>SSE events</td>
+          <td>In-process</td>
+          <td>In-process</td>
+          <td>Redis Streams</td>
+        </tr>
+        <tr>
+          <td>User store</td>
+          <td>Not required</td>
+          <td>JSON file</td>
+          <td>PostgreSQL</td>
+        </tr>
+        <tr>
+          <td>Extra deps</td>
+          <td><strong>None</strong></td>
+          <td><strong>None</strong></td>
+          <td>Redis + PG</td>
+        </tr>
+        <tr>
+          <td>Scale</td>
+          <td>1 user</td>
+          <td>N users, 1 node</td>
+          <td>N workers</td>
+        </tr>
+        <tr>
+          <td>Install UX</td>
+          <td>Next → Finish</td>
+          <td>One-line command</td>
+          <td>One-line command</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Desktop</h2>
+    <p>Electron manages the backend as a child process on <code>localhost</code>. No server, no cloud account, no network required. File associations (<code>.ab1 .srd .dan .scf</code>) open directly in the app.</p>
+    <p>Packages: <strong>Windows</strong> — NSIS / Squirrel <code>.exe</code> · <strong>Linux</strong> — <code>.AppImage</code> · <code>.deb</code> · <code>.rpm</code></p>
+
+    <h2>Single-node web</h2>
+<pre><code>docker run -p 80:80 sequencehub/procsvc</code></pre>
+
+    <h2>Distributed</h2>
+<pre><code>docker compose up --scale app=4</code></pre>
+    <p>Workers connect via Redis. SSE fan-out via Redis Streams — any worker instance can serve any client.</p>
+
+    <hr>
+    <p><em>Full deployment documentation coming soon.</em></p>
+  </div>
+</body>
+</html>
