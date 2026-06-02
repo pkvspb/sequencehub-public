@@ -29,7 +29,7 @@ Packages: **Windows** — NSIS / Squirrel `.exe` · **Linux** — `.AppImage` ·
 ## Single-node web
 
 ```bash
-docker run -p 80:80 sequencehub/procsvc
+docker run -p 80:8080 pkvspb/seqview
 ```
 
 ## Distributed

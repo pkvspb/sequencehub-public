@@ -25,6 +25,7 @@ visualization SaaS.
 ## Documentation
 
 - [Architecture](docs/architecture.md)
+- [Process communication](docs/process-communication.md)
 - [Deployment](docs/deployment.md)
 - [SequenceLogicData API](docs/sequence-data-api.md)
 - [Screenshots](screenshots/index.md)
