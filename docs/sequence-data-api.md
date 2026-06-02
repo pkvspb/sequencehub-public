@@ -1,5 +1,5 @@
 ---
-title: SequenceLogicData API
+title: Data API
 layout: doc
 ---
 
