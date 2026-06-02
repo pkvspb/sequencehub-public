@@ -1,6 +1,6 @@
 ---
 title: Deployment
-layout: default
+layout: doc
 ---
 
 # Deployment

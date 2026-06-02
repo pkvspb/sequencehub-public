@@ -27,7 +27,7 @@ visualization SaaS.
 - [Architecture](docs/architecture.md)
 - [Deployment](docs/deployment.md)
 - [SequenceLogicData API](docs/sequence-data-api.md)
-- [Screenshots](screenshots)
+- [Screenshots](screenshots/index.md)
 
 ## This repository
 

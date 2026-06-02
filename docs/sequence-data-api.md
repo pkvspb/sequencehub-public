@@ -1,6 +1,6 @@
 ---
 title: SequenceLogicData API
-layout: default
+layout: doc
 ---
 
 # SequenceLogicData API

@@ -13,7 +13,6 @@ Public documentation site for the SequenceHub platform. It is a **Jekyll/GitHub 
 | `index.md` | GitHub Pages home page (`layout: default`, rendered as `index.html`) |
 | `README.md` | GitHub repository README — different link targets than `index.md` (see below) |
 | `docs/*.md` | Markdown source for the three documentation pages |
-| `docs/*.html` | Standalone HTML counterparts — manually maintained, same content |
 | `presentation/platform.html` | EN slide deck (Marp-generated — do not hand-edit) |
 | `presentation/platform.limited.ru.html` | RU slide deck (Marp-generated, restricted variant) |
 | `presentation/*.svg` | Architecture/summary diagrams embedded in presentations |
@@ -23,7 +22,10 @@ Public documentation site for the SequenceHub platform. It is a **Jekyll/GitHub 
 
 ## Jekyll configuration
 
-`_config.yml` uses the `minima` theme. Pages with `layout: default` in front matter are processed by Jekyll into HTML at the same path with `.html` extension. No Gemfile, no local build setup — GitHub Actions runs Jekyll automatically on push.
+`_config.yml` uses the `minima` theme. Pages are processed by Jekyll into HTML at the same path with `.html` extension. No Gemfile, no local build setup — GitHub Actions runs Jekyll automatically on push.
+
+- `layout: default` — used by `index.md` (home page), renders with full minima chrome (header, nav, footer)
+- `layout: doc` — used by all `docs/*.md` pages, renders with a focused technical-docs style (clean typography, no site header; defined in `_layouts/doc.html`)
 
 ## Dual-link pattern
 
@@ -31,14 +33,6 @@ Public documentation site for the SequenceHub platform. It is a **Jekyll/GitHub 
 `index.md` links to `.html` files (correct for the deployed Pages site).
 
 Both must be kept in sync when docs are added or renamed.
-
-## Docs: markdown vs HTML
-
-Each doc exists in two forms:
-- `docs/*.md` — Jekyll source with `layout: default` front matter; the canonical place to edit content
-- `docs/*.html` — standalone HTML with inline CSS; serves the same content without Jekyll dependency
-
-When editing a doc, update both the `.md` and the corresponding `.html`. The HTML uses a consistent inline style block (GitHub-style typography, `#f6f8fa` code backgrounds, `#e1e4e8` borders).
 
 ## Presentations
 

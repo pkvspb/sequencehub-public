@@ -1,6 +1,6 @@
 ---
 title: Architecture
-layout: default
+layout: doc
 ---
 
 # Architecture
