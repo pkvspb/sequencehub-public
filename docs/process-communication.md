@@ -1,4 +1,9 @@
-﻿# Process Communication
+﻿---
+title: Process Communication
+layout: doc
+---
+
+# Process Communication
 
 ## Single-node
 
