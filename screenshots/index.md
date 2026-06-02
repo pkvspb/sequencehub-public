@@ -4,30 +4,30 @@ layout: doc
 ---
 
 <style>
-img { display: block; max-width: none; overflow-x: auto; }
-.wrapper { overflow-x: auto; }
+.img-scroll { overflow-x: auto; margin: 1rem 0; }
+.img-scroll img { display: block; max-width: none; }
 </style>
 
 # Screenshots
 
 ## Electropherogram viewer
 
-![Electropherogram viewer](1.Electropherogram%20viewer.png)
+<div class="img-scroll"><img src="1.Electropherogram%20viewer.png" alt="Electropherogram viewer"></div>
 
-![Electropherogram viewer](2.Electropherogram%20viewer.png)
+<div class="img-scroll"><img src="2.Electropherogram%20viewer.png" alt="Electropherogram viewer"></div>
 
 ## Zoomed trace
 
-![Zoomed trace](3.Zoomed%20trace.png)
+<div class="img-scroll"><img src="3.Zoomed%20trace.png" alt="Zoomed trace"></div>
 
 ## Select Basecaller
 
-![Select Basecaller](4.Select%20Basecaller.png)
+<div class="img-scroll"><img src="4.Select%20Basecaller.png" alt="Select Basecaller"></div>
 
 ## Architecture overview
 
-![Architecture overview](5.Architecture%20overview.png)
+<div class="img-scroll"><img src="5.Architecture%20overview.png" alt="Architecture overview"></div>
 
 ## Deployment
 
-![Distributed deployment diagram](6.Distributed%20deployment%20diagram.png)
+<div class="img-scroll"><img src="6.Distributed%20deployment%20diagram.png" alt="Distributed deployment diagram"></div>
