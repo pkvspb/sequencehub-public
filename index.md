@@ -33,9 +33,8 @@ signal source:
 
 ## [👨‍💻 About the Author](about-author.html)
 
-## [🚀  Live Demo](https://ou22-i5qc-fuai.gw-1a.dockhost.net/)
-
-Login: `seq@admin` / `seq@admin`
+## [🚀  Live Demo](https://ou22-i5qc-fuai.gw-1a.dockhost.net/) 
+##### Login: `seq@admin` / `seq@admin`
 
 ## [🧬 Platform Presentation](presentation/platform.html)
 
