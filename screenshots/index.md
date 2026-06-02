@@ -24,6 +24,6 @@ img { display: block; max-width: none; overflow-x: auto; }
 
 ![Architecture overview](4.Architecture%20overview.png)
 
-## Distributed deployment diagram
+## Deployment
 
 ![Distributed deployment diagram](5.Distributed%20deployment%20diagram.png)
