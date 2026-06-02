@@ -34,4 +34,5 @@ layout: doc
 
 ## Contact
 
-[linkedin.com/in/kirill-petrov-cs](https://www.linkedin.com/in/kirill-petrov-cs/)
+[linkedin.com/in/kirill-petrov-cs](https://www.linkedin.com/in/kirill-petrov-cs/)  
+[kirillpetrov@msn.com](mailto:kirillpetrov@msn.com)
