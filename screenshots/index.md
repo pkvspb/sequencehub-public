@@ -3,6 +3,11 @@ title: Screenshots
 layout: doc
 ---
 
+<style>
+img { display: block; max-width: none; overflow-x: auto; }
+.wrapper { overflow-x: auto; }
+</style>
+
 # Screenshots
 
 ## Electropherogram viewer
