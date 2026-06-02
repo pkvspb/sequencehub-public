@@ -5,7 +5,7 @@ layout: doc
 
 <style>
 .img-scroll { overflow-x: auto; margin: 1rem 0; }
-.img-scroll img { display: block; max-width: none; }
+.img-scroll img { display: block; max-width: 1000; }
 </style>
 
 # Screenshots
