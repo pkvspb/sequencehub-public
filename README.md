@@ -27,12 +27,27 @@ visualization SaaS.
 - [Architecture](docs/architecture.md)
 - [Deployment](docs/deployment.md)
 - [SequenceLogicData API](docs/sequence-data-api.md)
+- [Screenshots](screenshots)
 
 ## This repository
 
 Public documentation for the SequenceHub platform. Open-source components —
 including the core service, file format I/O library, and Canvas visualization
 layer — are coming soon.
+
+## Quick Start
+
+```bash
+# Vanilla JS
+docker pull pkvspb/seqview:latest
+
+docker run -p 80:8080 pkvspb/seqview
+
+# Vanilla JS — with sequences directory mounted
+docker run -p 80:8080 -v YOUR_PATH/sequences:/app/storage/sequences pkvspb/seqview
+```
+
+Open `http://localhost` in your browser. Default credentials: `seq@admin` / `seq@admin`.
 
 ## License
 
