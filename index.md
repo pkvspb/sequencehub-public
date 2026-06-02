@@ -31,7 +31,7 @@ signal source:
 - Signal processing platforms
 - Browser-native engineering SaaS
 
-## [👨‍💻 About the Author](about.html)
+## [👨‍💻 About the Author](about-author.html)
 
 ## [🚀  Live Demo](https://ou22-i5qc-fuai.gw-1a.dockhost.net/)
 
