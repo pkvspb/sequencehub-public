@@ -1,3 +1,6 @@
 title: SequenceHub
 description: Browser-native Sanger DNA sequencing analysis platform
 theme: minima
+header_pages: []
+exclude:
+  - CLAUDE.md
