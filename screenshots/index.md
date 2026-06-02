@@ -5,7 +5,7 @@ layout: doc
 
 <style>
 html { overflow-x: auto; }
-img { display: block; max-width: none; }
+img { display: block; max-width: 1000px; height: auto; }
 </style>
 
 # Screenshots
