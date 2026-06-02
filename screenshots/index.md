@@ -20,10 +20,14 @@ img { display: block; max-width: none; overflow-x: auto; }
 
 ![Zoomed trace](3.Zoomed%20trace.png)
 
+## Select Basecaller
+
+![Select Basecaller](4.Select%20Basecaller.png)
+
 ## Architecture overview
 
-![Architecture overview](4.Architecture%20overview.png)
+![Architecture overview](5.Architecture%20overview.png)
 
 ## Deployment
 
-![Distributed deployment diagram](5.Distributed%20deployment%20diagram.png)
+![Distributed deployment diagram](6.Distributed%20deployment%20diagram.png)
