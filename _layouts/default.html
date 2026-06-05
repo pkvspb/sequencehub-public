@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
 <head>
+  <script>(function(){var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);})();</script>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,8 +9,38 @@
   {%- seo -%}
   <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
   {%- feed_meta -%}
+  <style>
+    html[data-theme="dark"],
+    html[data-theme="dark"] body { background-color: #0d1117; color: #c9d1d9; }
+    html[data-theme="dark"] a { color: #58a6ff; }
+    html[data-theme="dark"] .site-header { background-color: #161b22; border-bottom-color: #30363d; }
+    html[data-theme="dark"] .site-title,
+    html[data-theme="dark"] .site-title:visited { color: #c9d1d9; }
+    html[data-theme="dark"] .site-nav .page-link { color: #c9d1d9; }
+    html[data-theme="dark"] .site-nav { background-color: #161b22; border-color: #30363d; }
+    html[data-theme="dark"] .menu-icon > svg path { fill: #c9d1d9; }
+    html[data-theme="dark"] .site-footer { border-top-color: #30363d; }
+    html[data-theme="dark"] .footer-col-wrapper { color: #8b949e; }
+    html[data-theme="dark"] pre,
+    html[data-theme="dark"] code { background-color: #161b22; border-color: #30363d; color: #c9d1d9; }
+    html[data-theme="dark"] pre code { background: none; border: none; }
+    html[data-theme="dark"] blockquote { color: #8b949e; border-left-color: #30363d; }
+    html[data-theme="dark"] table th { background-color: #161b22; }
+    html[data-theme="dark"] table th,
+    html[data-theme="dark"] table td { border-color: #30363d; }
+    html[data-theme="dark"] hr { border-color: #30363d; }
+    .theme-toggle {
+      position: fixed; top: 1rem; right: 1rem;
+      background: transparent; border: 1px solid #e1e4e8; border-radius: 6px;
+      cursor: pointer; padding: 0.35rem 0.65rem; font-size: 1.1rem; z-index: 1000;
+      line-height: 1; color: inherit; transition: opacity 0.15s;
+    }
+    html[data-theme="dark"] .theme-toggle { border-color: #30363d; }
+    .theme-toggle:hover { opacity: 0.7; }
+  </style>
 </head>
 <body>
+  <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"></button>
   {%- include header.html -%}
   <main class="page-content" aria-label="Content">
     <div class="wrapper">
@@ -17,5 +48,22 @@
     </div>
   </main>
   {%- include footer.html -%}
+  <script>
+    (function () {
+      var btn = document.getElementById('theme-toggle');
+      function updateBtn() {
+        var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+        btn.textContent = dark ? '☀️' : '🌙';
+        btn.title = dark ? 'Switch to light mode' : 'Switch to dark mode';
+      }
+      window.toggleTheme = function () {
+        var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        updateBtn();
+      };
+      updateBtn();
+    })();
+  </script>
 </body>
 </html>
