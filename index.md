@@ -34,7 +34,7 @@ signal source:
 ## [👨‍💻 About the Author](about-author.html)
 
 ## [🚀  Live Demo](https://ou22-i5qc-fuai.gw-1a.dockhost.net/) 
-##### Login: `seq@admin` / `seq@admin`
+##### Login: `seq@test` / `seq@test`
 
 ## [🧬 Platform Presentation](presentation/platform.html)
 

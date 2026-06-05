@@ -27,6 +27,7 @@ signal source:
 ## [👨‍💻 About the Author](about-author.md)
 
 ## [🚀 Live Demo](https://ou22-i5qc-fuai.gw-1a.dockhost.net/)
+##### Login: `seq@test` / `seq@test`
 
 ## [🧬 Platform Presentation](presentation/platform.html)
 
@@ -47,12 +48,12 @@ layer — are coming soon.
 ## Quick Start
 
 ```bash
-# Vanilla JS
+# Vanilla JS version
 docker pull pkvspb/seqview:latest
 
 docker run -p 80:8080 pkvspb/seqview
 
-# Vanilla JS — with sequences directory mounted
+# With sequences directory mounted
 docker run -p 80:8080 -v YOUR_PATH/sequences:/app/storage/sequences pkvspb/seqview
 ```
 
