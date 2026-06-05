@@ -55,12 +55,12 @@ layer — are coming soon.
 ## Quick Start
 
 ```bash
-# Vanilla JS
+# Vanilla JS version
 docker pull pkvspb/seqview:latest
 
 docker run -p 80:8080 pkvspb/seqview
 
-# Vanilla JS — with sequences directory mounted
+# With sequences directory mounted
 docker run -p 80:8080 -v YOUR_PATH/sequences:/app/storage/sequences pkvspb/seqview
 ```
 
