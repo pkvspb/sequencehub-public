@@ -29,6 +29,36 @@
     html[data-theme="dark"] table th,
     html[data-theme="dark"] table td { border-color: #30363d; }
     html[data-theme="dark"] hr { border-color: #30363d; }
+
+    /* Syntax highlighting — reset Rouge token colors for dark background */
+    html[data-theme="dark"] .highlighter-rouge .highlight,
+    html[data-theme="dark"] figure.highlight { background-color: #161b22; }
+    html[data-theme="dark"] .highlight pre,
+    html[data-theme="dark"] .highlight code { background: none; border: none; color: #c9d1d9; }
+    html[data-theme="dark"] .highlight .c,
+    html[data-theme="dark"] .highlight .c1,
+    html[data-theme="dark"] .highlight .cm { color: #8b949e; font-style: italic; }
+    html[data-theme="dark"] .highlight .k,
+    html[data-theme="dark"] .highlight .kd,
+    html[data-theme="dark"] .highlight .kn,
+    html[data-theme="dark"] .highlight .kr { color: #ff7b72; }
+    html[data-theme="dark"] .highlight .s,
+    html[data-theme="dark"] .highlight .s1,
+    html[data-theme="dark"] .highlight .s2,
+    html[data-theme="dark"] .highlight .sb,
+    html[data-theme="dark"] .highlight .se { color: #a5d6ff; }
+    html[data-theme="dark"] .highlight .nb,
+    html[data-theme="dark"] .highlight .nf { color: #79c0ff; }
+    html[data-theme="dark"] .highlight .m,
+    html[data-theme="dark"] .highlight .mi,
+    html[data-theme="dark"] .highlight .mf { color: #79c0ff; }
+    html[data-theme="dark"] .highlight .na,
+    html[data-theme="dark"] .highlight .nc,
+    html[data-theme="dark"] .highlight .no { color: #e3b341; }
+    html[data-theme="dark"] .highlight .o { color: #ff7b72; }
+    html[data-theme="dark"] .highlight .p,
+    html[data-theme="dark"] .highlight .n { color: #c9d1d9; }
+
     .theme-toggle {
       position: fixed; top: 1rem; right: 1rem;
       background: transparent; border: 1px solid #e1e4e8; border-radius: 6px;
