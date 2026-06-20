@@ -1,0 +1,57 @@
+<svg width="680" height="220" viewBox="0 0 680 220" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="baselineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="rgb(72,210,72)"   stop-opacity="0.5"/>
+      <stop offset="33%"  stop-color="rgb(72,112,228)"  stop-opacity="0.5"/>
+      <stop offset="66%"  stop-color="rgb(188,208,230)" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="rgb(72,112,228)"  stop-opacity="0.5"/>
+    </linearGradient>
+  </defs>
+  <rect x="58" y="8" width="564" height="158" rx="10" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+  <rect x="58" y="8" width="564" height="22" rx="10" fill="rgba(255,255,255,0.11)"/>
+  <rect x="58" y="20" width="564" height="10" fill="rgba(255,255,255,0.11)"/>
+  <circle cx="78"  cy="19" r="4" fill="rgba(255,255,255,0.32)"/>
+  <circle cx="94"  cy="19" r="4" fill="rgba(255,255,255,0.32)"/>
+  <circle cx="110" cy="19" r="4" fill="rgba(255,255,255,0.32)"/>
+  <line x1="96" y1="136" x2="548" y2="136" stroke="url(#baselineGradient)" stroke-width="2"/>
+  <!-- Dashed peak lines -->
+  <line x1="112" y1="37" x2="112" y2="158" stroke="rgba(255,255,255,0.10)" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="158" y1="37" x2="158" y2="158" stroke="rgba(255,255,255,0.10)" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="204" y1="37" x2="204" y2="158" stroke="rgba(255,255,255,0.10)" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="250" y1="37" x2="250" y2="158" stroke="rgba(255,255,255,0.10)" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="296" y1="37" x2="296" y2="158" stroke="rgba(255,255,255,0.10)" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="342" y1="37" x2="342" y2="158" stroke="rgba(255,255,255,0.10)" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="388" y1="37" x2="388" y2="158" stroke="rgba(255,255,255,0.10)" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="434" y1="37" x2="434" y2="158" stroke="rgba(255,255,255,0.10)" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="480" y1="37" x2="480" y2="158" stroke="rgba(255,255,255,0.10)" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="526" y1="37" x2="526" y2="158" stroke="rgba(255,255,255,0.10)" stroke-width="1" stroke-dasharray="3,3"/>
+  <!-- G trace (gray) -->
+  <path d="M96,136 L98,136 C104,136 108,101 112,101 C116,101 124,136 132,136 L144,136 C150,136 154,77 158,77 C162,77 170,136 178,136 L194,136 C198,136 202,126 204,126 C206,126 212,136 216,136 L240,136 C244,136 248,127 250,127 C252,127 258,136 262,136 L282,136 C288,136 292,96 296,96 C300,96 308,136 316,136 L332,136 C336,136 340,127 342,127 C344,127 350,136 354,136 L378,136 C382,136 386,126 388,126 C390,126 396,136 400,136 L424,136 C428,136 432,127 434,127 C436,127 442,136 446,136 L466,136 C472,136 476,88 480,88 C484,88 492,136 500,136 L516,136 C520,136 524,127 526,127 C528,127 534,136 538,136 L548,136"
+        fill="none" stroke="rgba(188,208,230,0.72)" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- C trace (blue) -->
+  <path d="M96,136 L98,136 C104,136 108,99 112,99 C116,99 124,136 132,136 L148,136 C152,136 156,126 158,126 C160,126 166,136 170,136 L190,136 C196,136 200,91 204,91 C208,91 216,136 224,136 L240,136 C244,136 248,126 250,126 C252,126 258,136 262,136 L286,136 C290,136 294,126 296,126 C298,126 304,136 308,136 L332,136 C336,136 340,126 342,126 C344,126 350,136 354,136 L378,136 C382,136 386,126 388,126 C390,126 396,136 400,136 L424,136 C428,136 432,126 434,126 C436,126 442,136 446,136 L470,136 C474,136 478,126 480,126 C482,126 488,136 492,136 L516,136 C520,136 524,126 526,126 C528,126 534,136 538,136 L548,136"
+        fill="none" stroke="rgba(72,112,228,0.88)" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- T trace (red) -->
+  <path d="M96,136 L102,136 C106,136 110,127 112,127 C114,127 120,136 124,136 L148,136 C152,136 156,127 158,127 C160,127 166,136 170,136 L194,136 C198,136 202,127 204,127 C206,127 212,136 216,136 L236,136 C242,136 246,61 250,61 C254,61 262,136 270,136 L282,136 C286,136 290,127 296,127 C298,127 304,136 308,136 L328,136 C334,136 338,72 342,72 C346,72 354,136 362,136 L374,136 C380,136 384,127 388,127 C392,127 400,136 408,136 L420,136 C426,136 430,93 434,93 C438,93 446,136 454,136 L470,136 C474,136 478,127 480,127 C482,127 488,136 492,136 L512,136 C518,136 522,77 526,77 C530,77 538,136 540,136 L548,136"
+        fill="none" stroke="rgba(220,76,76,0.88)" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- A trace (green) -->
+  <path d="M96,136 L102,136 C106,136 110,127 112,127 C114,127 120,136 124,136 L148,136 C152,136 156,127 158,127 C160,127 166,136 170,136 L194,136 C198,136 202,127 204,127 C206,127 212,136 216,136 L240,136 C244,136 248,127 250,127 C252,127 258,136 262,136 L286,136 C290,136 294,127 296,127 C298,127 304,136 308,136 L332,136 C336,136 340,127 342,127 C344,127 350,136 354,136 L378,136 C382,136 386,83 388,83 C390,83 396,136 400,136 L424,136 C428,136 432,127 434,127 C436,127 442,136 446,136 L470,136 C474,136 478,127 480,127 C482,127 488,136 492,136 L516,136 C520,136 524,127 526,127 C528,127 534,136 538,136 L548,136"
+        fill="none" stroke="rgba(72,210,72,0.92)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Nucleotide labels -->
+  <text x="112" y="50" text-anchor="middle" fill="rgba(72,112,228,0.95)"  font-size="13" font-weight="700">C</text>
+  <text x="158" y="50" text-anchor="middle" fill="rgba(188,208,230,0.92)" font-size="13" font-weight="700">G</text>
+  <text x="204" y="50" text-anchor="middle" fill="rgba(72,112,228,0.95)"  font-size="13" font-weight="700">C</text>
+  <text x="250" y="50" text-anchor="middle" fill="rgba(220,76,76,0.95)"   font-size="13" font-weight="700">T</text>
+  <text x="296" y="50" text-anchor="middle" fill="rgba(188,208,230,0.92)" font-size="13" font-weight="700">G</text>
+  <text x="342" y="50" text-anchor="middle" fill="rgba(220,76,76,0.95)"   font-size="13" font-weight="700">T</text>
+  <text x="388" y="50" text-anchor="middle" fill="rgba(72,210,72,0.92)"   font-size="13" font-weight="700">A</text>
+  <text x="434" y="50" text-anchor="middle" fill="rgba(220,76,76,0.95)"   font-size="13" font-weight="700">T</text>
+  <text x="480" y="50" text-anchor="middle" fill="rgba(188,208,230,0.92)" font-size="13" font-weight="700">G</text>
+  <text x="526" y="50" text-anchor="middle" fill="rgba(220,76,76,0.95)"   font-size="13" font-weight="700">T</text>
+  <rect x="58"  y="180" width="180" height="34" rx="8" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.20)" stroke-width="1.2"/>
+  <text x="148" y="201" text-anchor="middle" fill="rgba(255,255,255,0.86)" font-size="12" font-family="Segoe UI,Arial,sans-serif" font-weight="600">High-perf rendering</text>
+  <rect x="250" y="180" width="180" height="34" rx="8" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.20)" stroke-width="1.2"/>
+  <text x="340" y="201" text-anchor="middle" fill="rgba(255,255,255,0.86)" font-size="12" font-family="Segoe UI,Arial,sans-serif" font-weight="600">Plugin processing</text>
+  <rect x="442" y="180" width="180" height="34" rx="8" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.20)" stroke-width="1.2"/>
+  <text x="532" y="201" text-anchor="middle" fill="rgba(255,255,255,0.86)" font-size="12" font-family="Segoe UI,Arial,sans-serif" font-weight="600">Cloud workflows</text>
+</svg>
