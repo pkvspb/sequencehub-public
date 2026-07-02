@@ -64,7 +64,7 @@ docker run -p 80:8080 pkvspb/seqview
 docker run -p 80:8080 -v YOUR_PATH/sequences:/app/storage/sequences pkvspb/seqview
 ```
 
-Open `http://localhost` in your browser. Default credentials: `seq@admin` / `seq@admin`.
+Open `http://localhost` in your browser. Default credentials: `seq@test` / `seq@test`.
 
 ## License
 
