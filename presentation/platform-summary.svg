@@ -29,7 +29,7 @@
   <rect x="760" y="122" width="198" height="76" rx="10"
         fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
   <text x="859" y="152" text-anchor="middle" fill="white" font-size="13" font-weight="600">Canvas Visualization</text>
-  <text x="859" y="168" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="10">High-perf · multi-channel · Q0–Q60</text>
+  <text x="859" y="168" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="10">High-perf · multi-channel · ~Q0–24</text>
 
   <!-- Spoke 4: Bottom-left — Industrial Telemetry -->
   <line x1="420" y1="304" x2="270" y2="358" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" stroke-dasharray="5,4"/>

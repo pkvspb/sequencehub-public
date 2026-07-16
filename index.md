@@ -40,6 +40,7 @@ signal source:
 
 ## Documentation
 
+- [Why SequenceHub](docs/why-sequencehub.html)
 - [Architecture](docs/architecture.html)
 - [Process communication](docs/process-communication.html)
 - [Deployment](docs/deployment.html)
