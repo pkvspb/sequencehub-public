@@ -7,6 +7,5 @@ header_pages:
   - docs/architecture.md
   - docs/process-communication.md
   - docs/deployment.md
-  - docs/sequence-data-api.md
 exclude:
   - CLAUDE.md
