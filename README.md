@@ -4,8 +4,8 @@ alternative.
 
 It reads raw capillary electrophoresis output (AB1, SRD, DAN v2–6, SCF v3), runs
 a 9-stage basecalling pipeline, and renders results through a high-performance
-Canvas chromatogram viewer with Q0–Q60 quality overlays. The backend is
-ASP.NET Core 9 with a plugin-based processor architecture, REST + SSE job API,
+Canvas chromatogram viewer with vendor-calibrated quality overlays (~Q0–24).
+The backend is ASP.NET Core 9 with a plugin-based processor architecture, REST + SSE job API,
 and a full observability stack (Prometheus, Grafana, Loki, OpenTelemetry) bundled
 in `docker-compose`. It deploys as a single Electron desktop application or scales
 to a distributed multi-worker setup — same codebase, same API, mode selected by
