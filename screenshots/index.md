@@ -31,3 +31,7 @@ img { display: block; max-width: 1000px; height: auto; }
 ## Deployment
 
 ![Distributed deployment diagram](6.Distributed%20deployment%20diagram.png)
+
+## Compare files
+
+![Compare files](7.Compare%20files.png)

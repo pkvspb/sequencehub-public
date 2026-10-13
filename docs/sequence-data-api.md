@@ -38,7 +38,7 @@ Both `AB1ReadWriter` and `DanReaderWriter` implement both interfaces. `SrdReader
 | `DanReaderWriter` | `.dan` (DAN2–DAN6) | `INucleotideReader`, `INucleotideWriterAsync` |
 | `SrdReader` | `.srd` (XML) | `INucleotideReader` |
 | `ScfReader` | `.scf` (Staden SCF v3) | `INucleotideReader` |
-| `ScfWriter` | `.scf` (Staden SCF v3) | `INucleotideWriterAsync` |
+| `ScfWriter` | `.scf` (Staden SCF v3) | none — synchronous `Write(SequenceResult, string fileName)` |
 
 All are concrete classes with a public parameterless constructor, usable as generic type arguments (`where T : INucleotideReader, new()`).
 
@@ -267,9 +267,20 @@ All arrays and matrices inside `SequenceResult` use **ACGT order** (A=0, C=1, G=
 ```csharp
 public static class SequenceFileExtension
 {
-    public const string SRD = "srd", DAN = "dan", AB1 = "ab1",
+    public const string SRD = "srd", DAN = "dan", AB1 = "ab1", SCF = "scf",
                         FASTA = "fasta", FAS = "fas", TXT = "txt";
 }
 
-public enum SequenceFileFormat { Unknown, SRD, DAN, AB1, FSA, FASTA }
+public enum SequenceFileFormat { Unknown, SRD, DAN, AB1, FSA, SCF, FASTA }
 ```
+
+---
+
+## Native AOT variant
+
+A second build of the same sources is compatible with .NET Native AOT; SangerBasecaller's AOT
+publish uses it. It has the same assembly identity (`SequenceLogicData`, 1.0.0.0) and the same
+API, without DAN: DAN5 uses `BinaryFormatter` and DAN6 reflection-based `System.Text.Json`,
+neither of which works under Native AOT. It reads AB1/FSA, SRD and SCF. SRD is parsed by
+`SrdXmlParser`, a reflection-free `XmlReader` parser producing the same `RawDocumentXml` as the
+`XmlSerializer` path of the standard build.

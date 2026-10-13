@@ -17,14 +17,14 @@ SequenceHub is a Sanger DNA sequencing analysis platform with four layers:
 ```
 SequenceLogicData  (.NET 9 — SRD/AB1/DAN/SCF I/O)
   ├──► PkvBasecallerN  bundles SequenceLogicData.dll at compile time
-  └──► prochub/Storage  loads SequenceLogicData.dll at runtime
+  └──► prochub/Storage  references SequenceLogicData.dll at build time (rebuild ProcSvc to pick up a change)
 
 PkvBasecallerN  →  published binary  →  prochub/back/ExternalBasecallers/PkvBasecallerN/
 ProcessStarter  →  published binary  →  prochub/back/ExternalBasecallers/ProcessStarter/
 
-webcomponents  (no build step)
-  ├──► prochub/front/  installed as local file: package
-  └──► xseq/  installed as local file: package
+webcomponents  (ES6 source → obfuscated dist/, copied by npm run deploy)
+  ├──► prochub/front/webcomponents/  vendored copy, installed as local file: package
+  └──► xseq/webcomponents/           vendored copy, installed as local file: package
 ```
 
 ## Processing Flow
