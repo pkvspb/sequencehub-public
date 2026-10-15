@@ -29,7 +29,7 @@ signal source:
 ## [🚀 Live Demo](https://ou22-i5qc-fuai.gw-1a.dockhost.net/)
 ##### Login: `seq@test` / `seq@test`
 
-## [🧬 Platform Presentation](presentation/platform.html)
+## [🧬 Platform Presentation](https://pkvspb.github.io/sequencehub-public/presentation/platform.html)
 
 ## Documentation
 
