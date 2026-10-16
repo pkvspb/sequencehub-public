@@ -49,9 +49,9 @@ signal source:
 
 ## This repository
 
-Public documentation for the SequenceHub platform. Open-source components —
-including the core service, file format I/O library, and Canvas visualization
-layer — are coming soon.
+Public documentation for the SequenceHub platform. The file format I/O library
+(`SequenceLogicData`) will be published as open source under Apache 2.0; the
+rest of the platform is commercial.
 
 ## Quick Start
 
